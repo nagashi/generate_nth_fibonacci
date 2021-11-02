@@ -1,0 +1,11 @@
+[package]
+name = "generate_nth_fibonacci"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+ordinal = "0.2.3"
+num-bigint = "0.4.2"
+num-traits = "0.2.14"
