@@ -13,7 +13,7 @@
 Per Wikipedia,&nbsp; "In mathematics, the Fibonacci numbers, commonly denoted Fn, form a sequence, called the Fibonacci sequence, such that each number is the sum of the two preceding ones, starting from 0 and 1".  
 <p>
 
-I initially constructed my code based on the Binet formula,&nbsp;(see below),&nbsp;which is considered an exact formula for computing the n-th term!&nbsp;&nbsp;But,&nbsp;after testing,&nbsp;I found that the precision was off around an input of 50.&nbsp;&nbsp;The datatype used in the initial program was u128.&nbsp;&nbsp;I assumed the precision loss was due to two factors; computing the square root and division.&nbsp;&nbsp;Unsatisified with the outcome of the initial program,&nbsp;I decided to do a little more research.
+The initial program I wrote was based on the Binet formula,&nbsp;(see below),&nbsp;which is considered an exact formula for computing the n-th term of the Fibonacci sequence.&nbsp;&nbsp;After testing the program,&nbsp;I found that the precision was off around an input of 50.&nbsp;&nbsp;The datatype used in the initial program was u128.&nbsp;&nbsp;I assumed the precision loss was due to two mathematical computations;&nbsp;computing the square root and division.&nbsp;&nbsp;Unsatisified with the outcome,&nbsp;I decided to do a little more research.
  
 
 [_<p align="center">
@@ -25,10 +25,10 @@ Binet formula_](https://www.sciencedirect.com/science/article/pii/S0195669807000
  </p>
  <br>
 
- I came across an interesting article in Medium on [Memoization in Rust](https://medium.com/swlh/on-memoization-291fd1dd924) written by Andrew Pritchard.&nbsp;&nbsp;  Basically,&nbsp;memoization is an optimization technique which is used to speed up the result of a program by storing by storing the results of comptations and then returning the the cached result when the same input occurs again.
+ I came across an interesting article in Medium on [Memoization in Rust](https://medium.com/swlh/on-memoization-291fd1dd924) written by Andrew Pritchard.&nbsp;&nbsp;Memoization is an optimization technique which is used to speed up the result of a program by storing the results of comptations and then returning the the cached result when the same input occurs again.
  <br>
 
- Using the Fibonacci example in the article,&nbsp;I ran it through debug to determine exactly what the code was doing.&nbsp;&nbsp;With an input of 10,&nbsp;the code runs from top to bottom,&nbsp;10 -> 0,&nbsp;inputting values into the cache along the way.&nbsp;&nbsp;The code then runs from the bottom back to the top,&nbsp;i.e.,&nbsp;to the value that was inputted and returns the result from the cache.&nbsp;&nbsp;One issue,&nbsp;again,&nbsp; amounted to the u128 dataype.&nbsp;&nbsp;Using this approach,&nbsp;I receive a panic message 'attempt to add with overflow' when inputting a value greater than 186.&nbsp;&nbsp;Since I could not figure out how to eloquently handle this issue,&nbsp;I hardcoded a fix which I wasn't completely happy with (see [here](https://github.com/nagashi/nth_fibonacci/blob/main/src/main.rs)&nbsp;on line 66).&nbsp;&nbsp;
+ Using the Fibonacci example in the article,&nbsp;I ran it through debug to determine exactly what the code was doing.&nbsp;&nbsp;With an input of 10,&nbsp;the code runs from top to bottom,&nbsp;10 -> 0,&nbsp;inputting values into the cache along the way.&nbsp;&nbsp;The code then runs from the bottom back to the top,&nbsp;i.e.,&nbsp;to the value that was inputted and returns the result from the cache.&nbsp;&nbsp;One issue,&nbsp;again,&nbsp;amounted to the u128 dataype.&nbsp;&nbsp;Using this approach,&nbsp;I receive a panic message 'attempt to add with overflow' when inputting a value greater than 186.&nbsp;&nbsp;Since I could not figure out how to eloquently handle this error,&nbsp;I hardcoded a fix which I wasn't completely happy with (see [here](https://github.com/nagashi/nth_fibonacci/blob/main/src/main.rs)&nbsp;on line 66).&nbsp;&nbsp;
 
 
  
