@@ -10,7 +10,7 @@
         /></kbd>
 </p>
 <br>
-Per Wikipedia,&nbsp; "In mathematics, the Fibonacci numbers, commonly denoted Fn, form a sequence, called the Fibonacci sequence, such that each number is the sum of the two preceding ones, starting from 0 and 1".  
+Per Wikipedia,&nbsp;"In mathematics,&nbsp;the Fibonacci numbers,&nbsp;commonly denoted Fn,&nbsp;form a sequence,&nbsp;called the Fibonacci sequence,&nbsp;such that each number is the sum of the two preceding ones, starting from 0 and 1".  
 <p>
 
 The initial program I wrote was based on the Binet formula,&nbsp;(see below),&nbsp;which is considered an exact formula for computing the n-th term of the Fibonacci sequence.&nbsp;&nbsp;After testing the program,&nbsp;I found that the precision was off around an input of 50.&nbsp;&nbsp;The datatype used in the program was u128.&nbsp;&nbsp;I assumed the precision loss was due to two mathematical computations;&nbsp;computing the square root and division.&nbsp;&nbsp;Unsatisified with the outcome,&nbsp;I decided to do a little more research.
@@ -39,7 +39,9 @@ constructed for this program is based on the display in the following gif file.
         /></kbd>
 </p>
 <br> 
-The way the program is now constructed satisfies my previous issues:<br><br>&nbsp;&nbsp;&nbsp;(1)&nbsp;Allowing the user a wider range of numbers from which to input.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The largest number I tried successfully was 1.6 million.<br>&nbsp;&nbsp;&nbsp;(2)&nbsp;Formatting the output into a visually pleasing form.<br><br>The 'formated' function will now accept arguments of type u128 and BigUint.&nbsp;&nbsp;Unfortunately,&nbsp;it will also accept other datatypes as well that could/will cause a problem if the function body is not reconfigured.&nbsp;&nbsp;I could not figure out how to have the function only accept an integer or bigint,&nbsp;but,&nbsp;that's where I am in my learning at this moment,&nbsp;at this time,&nbsp;as I travel through the land of Rust.&nbsp;&nbsp;I'm confident that I'll pick up the knowledge and display remnants of improvement as I travel on down the road.&nbsp;&nbsp;Thanks for reading and do reach out and let me know if you have any questions/concerns.&nbsp;&nbsp;All advice,&nbsp;constructive,&nbsp;even non-constructive,&nbsp;is welcome😃.<br><br> 
+The way the program is now constructed satisfies my previous issues:<br><br>&nbsp;&nbsp;&nbsp;(1)&nbsp;Allowing the user a wider range of numbers from which to input.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The largest number I tried successfully was 1.6 million.<br>&nbsp;&nbsp;&nbsp;(2)&nbsp;Formatting the output into a visually pleasing form.<br><br>The 'formated' function will now accept arguments of type u128 and BigUint.&nbsp;&nbsp;Unfortunately,&nbsp;it will also accept other datatypes as well that could/will cause a problem if the function body is not reconfigured.&nbsp;&nbsp;I could not figure out how to have the function only accept an integer or bigint,&nbsp;but,&nbsp;that's where I am in my learning at this moment,&nbsp;at this time,&nbsp;as I travel through the land of Rust.&nbsp;&nbsp;I'm confident that I'll pick up the knowledge and display remnants of improvement as I travel on down the road.
+<br><br>
+Thanks for reading and do reach out and let me know if you have any questions or concerns.&nbsp;&nbsp;All advice,&nbsp;constructive,&nbsp;even non-constructive,&nbsp;is welcome😃.&nbsp;&nbsp;
 
 For those interested in the Fibonacci sequence,&nbsp; [here is a full list of the first 10,&nbsp;100,&nbsp;and 300 Fibonacci numbers.](https://www.math.net/list-of-fibonacci-numbers)&nbsp;&nbsp;&nbsp;
 
