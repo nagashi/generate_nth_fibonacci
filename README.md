@@ -25,7 +25,8 @@ Binet formula_](https://www.sciencedirect.com/science/article/pii/S0195669807000
    
  I came across an interesting article in Medium on [Memoization in Rust](https://medium.com/swlh/on-memoization-291fd1dd924) written by Andrew Pritchard.&nbsp;&nbsp;Memoization is an optimization technique which is used to speed up the result of a program by storing the result of a computation for the inputted value and then returning the the cached result when the same input occurs again.
  <br>
- Using the Fibonacci example in the article,&nbsp;one issue I ran into,&nbsp;again,&nbsp;was the u128 dataype.&nbsp;&nbsp;Using the datatype on this approach,&nbsp;I would receive a panic message of 'attempt to add with overflow' when inputting a value greater than 186.&nbsp;&nbsp;Since I could not figure out how to eloquently handle this error,&nbsp;I hardcoded a fix which I wasn't completely happy with:&nbsp;[see here on line 66](https://github.com/nagashi/nth_fibonacci/blob/main/src/main.rs)&nbsp;.&nbsp;&nbsp;Another issued involved the formatting of the output.&nbsp;&nbsp;The formatting library used with the u128 datatype was not applicable for the BigUint datatype.&nbsp;&nbsp;Scrapping this application,&nbsp;I decided the write a new one using the BigUint datatype and developed my own function to format the output into what I consider a more legible form.&nbsp;&nbsp;The algorithm
+ <br>
+ Using the Fibonacci example in the article,&nbsp;one issue I ran into,&nbsp;again,&nbsp;was the u128 dataype.&nbsp;&nbsp;In using the datatype on this approach,&nbsp;I would receive a panic message of 'attempt to add with overflow' when inputting a value greater than 186.&nbsp;&nbsp;Since I could not figure out how to eloquently handle this error,&nbsp;I hardcoded a fix which I wasn't completely happy with:&nbsp;[see here on line 66](https://github.com/nagashi/nth_fibonacci/blob/main/src/main.rs)&nbsp;.&nbsp;&nbsp;Another issued I found involved the formatting of the output.&nbsp;&nbsp;The formatting library used with the u128 datatype was not applicable for the BigUint datatype.&nbsp;&nbsp;Scrapping this application,&nbsp;I decided the write a new one using the BigUint datatype and developed my own function to format the output into what I consider a more appealing form.&nbsp;&nbsp;The algorithm
 constructed for this program is based on the display in the following gif file.
 <b>
 ## _<div align="center">Algorithm for the Fibonacci sequence_
@@ -39,11 +40,12 @@ constructed for this program is based on the display in the following gif file.
         /></kbd>
 </p>
 <br> 
-The way the program is now constructed satisfies my previous issues:<br><br>&nbsp;&nbsp;&nbsp;(1)&nbsp;Allowing the user a wider range of numbers from which to input.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The largest number I tried successfully was 1.6 million.<br>&nbsp;&nbsp;&nbsp;(2)&nbsp;Formatting the output into a visually pleasing form.<br><br>The 'formated' function will now accept arguments of type u128 and BigUint.&nbsp;&nbsp;Unfortunately,&nbsp;it will also accept other datatypes as well that could/will cause a problem if the function body is not reconfigured.&nbsp;&nbsp;I could not figure out how to have the function only accept an integer or bigint,&nbsp;but,&nbsp;that's where I am in my learning at this moment,&nbsp;at this time,&nbsp;as I travel through the land of Rust.&nbsp;&nbsp;I'm confident that I'll pick up the knowledge and display remnants of improvement as I travel on down the road.
-<br><br>
-Thanks for reading and do reach out and let me know if you have any questions or concerns.&nbsp;&nbsp;All advice,&nbsp;constructive,&nbsp;even non-constructive,&nbsp;is welcome😃.&nbsp;&nbsp;
+The way the program is now constructed satisfies my previous concerns:<br><br>&nbsp;&nbsp;&nbsp;(1)&nbsp;Allowing the user a wider range of numbers to input.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The largest number I tried successfully was 1.6 million.<br>&nbsp;&nbsp;&nbsp;(2)&nbsp;Format the sequence and, if needed, the input number.<br><br>The 'formated' function will now accept arguments of type u128 and BigUint.&nbsp;&nbsp;Unfortunately,&nbsp;it will also accept other datatypes as well that could/will cause a problem if the function body is not reconfigured.&nbsp;&nbsp;I could not figure out how to have the function only accept an integer or bigint,&nbsp;but,&nbsp;that's where I am in my learning at this moment,&nbsp;at this time,&nbsp;as I travel through the land of Rust.&nbsp;&nbsp;I'm confident that I'll pick up the knowledge and display remnants of improvement as I travel on down the road.
+<br>
+<br>
 
-For those interested in the Fibonacci sequence,&nbsp; [here is a full list of the first 10,&nbsp;100,&nbsp;and 300 Fibonacci numbers.](https://www.math.net/list-of-fibonacci-numbers)&nbsp;&nbsp;&nbsp;
+Thanks for reading and do reach out and let me know if you have any questions or concerns.&nbsp;&nbsp;All advice, constructive, even non-constructive,&nbsp;is welcome😃.&nbsp;&nbsp;
+For those interested in the Fibonacci sequence, [here is a full list of the first 10, 100, and 300 Fibonacci numbers.](https://www.math.net/list-of-fibonacci-numbers)
 
 </body>
 </html>
