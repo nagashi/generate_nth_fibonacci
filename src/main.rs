@@ -1,8 +1,7 @@
 use num_bigint::BigUint;
 use num_traits::{One, Zero};
 use ordinal::Ordinal;
-use std::io;
-use std::mem::replace;
+use std::{io, mem::replace};
 
 // Calculate large fibonacci numbers.
 fn fib(n: u128) -> BigUint {
@@ -16,8 +15,8 @@ fn fib(n: u128) -> BigUint {
     }
     f0
 }
-
-fn format_biguint(n: BigUint) -> String {
+// <T> Any datatype
+fn formated<T: std::fmt::Display>(n: T) -> String {
     let format_string = format!("{}", n);
     let mut x = String::new();
     let mut z = format_string.chars().rev().peekable();
@@ -53,10 +52,22 @@ fn main() {
             Err(_) => continue,
         };
 
+        let suffix = Ordinal(num) // get ordinal suffix, i.e., st, nd, rd, th
+            .to_string()
+            .chars()
+            .rev()
+            .take(2)
+            .collect::<String>();
+
         println!(
             "The {fib} Fibonacci number is: \n{}",
-            format_biguint(fib(num)),
-            fib = Ordinal(num).to_string()
+            formated(fib(num)), // get fibonacci sequence & format it.
+            fib = format!(
+                // combine the formatted input & ordinal suffix
+                "{}{}",
+                formated(num),
+                suffix.chars().rev().collect::<String>()
+            )
         );
     }
 }
