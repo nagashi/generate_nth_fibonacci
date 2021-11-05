@@ -15,20 +15,45 @@ fn fib(n: u128) -> BigUint {
     }
     f0
 }
-// <T> Any datatype
-fn formated<T: std::fmt::Display>(n: T) -> String {
-    let format_string = format!("{}", n);
-    let mut x = String::new();
-    let mut z = format_string.chars().rev().peekable();
 
-    while z.peek().is_some() {
-        let chunk: String = z.by_ref().take(3).collect();
-        x.push_str(&chunk);
-        if z.peek().is_some() {
-            x.push(',');
+// implement formatting capability for
+// datatypes u128 & BigUint
+trait Format {
+    fn formated(&self) -> String;
+}
+
+impl Format for u128 {
+    fn formated(&self) -> String {
+        let format_string = format!("{}", self);
+        let mut x = String::new();
+        let mut z = format_string.chars().rev().peekable();
+
+        while z.peek().is_some() {
+            let chunk: String = z.by_ref().take(3).collect();
+            x.push_str(&chunk);
+            if z.peek().is_some() {
+                x.push(',');
+            }
         }
+        x.chars().rev().collect()
     }
-    x.chars().rev().collect()
+}
+
+impl Format for BigUint {
+    fn formated(&self) -> String {
+        let format_string = format!("{}", self);
+        let mut x = String::new();
+        let mut z = format_string.chars().rev().peekable();
+
+        while z.peek().is_some() {
+            let chunk: String = z.by_ref().take(3).collect();
+            x.push_str(&chunk);
+            if z.peek().is_some() {
+                x.push(',');
+            }
+        }
+        x.chars().rev().collect()
+    }
 }
 
 fn main() {
@@ -60,12 +85,13 @@ fn main() {
             .collect::<String>();
 
         println!(
-            "The {fib} Fibonacci number is: \n{}",
-            formated(fib(num)), // get fibonacci sequence & format it.
-            fib = format!(
+            "The {fibo} Fibonacci number is: \n{}",
+            // fib function returns BigUint so call formated function
+            fib(num).formated(),
+            fibo = format!(
                 // combine the formatted input & ordinal suffix
                 "{}{}",
-                formated(num),
+                num.formated(),
                 suffix.chars().rev().collect::<String>()
             )
         );
