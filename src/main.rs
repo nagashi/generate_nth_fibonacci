@@ -85,11 +85,9 @@ fn main() {
             .collect::<String>();
 
         println!(
-            "The {fibo} Fibonacci number is: \n{}",
-            // fib function returns BigUint so call formated function
+            "The {num_ord} Fibonacci number is: \n{}",
             fib(num).formated(),
-            fibo = format!(
-                // combine the formatted input & ordinal suffix
+            num_ord = format!(
                 "{}{}",
                 num.formated(),
                 suffix.chars().rev().collect::<String>()
