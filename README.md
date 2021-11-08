@@ -57,7 +57,8 @@ The way the program is now constructed satisfies my previous concerns:<br><br>&n
 <br>
 <br>
 
-Thanks for reading and do reach out and let me know if you have any questions or concerns.&nbsp;&nbsp;All suggestions, constructive, even non-constructive,&nbsp;will be welcoming😃.&nbsp;&nbsp;For those interested in the Fibonacci sequence, here is a full list of the first [10, 100, and 300 Fibonacci numbers.](https://www.math.net/list-of-fibonacci-numbers)
+Thanks for reading and do reach out and let me know if you have any questions or concerns.&nbsp;&nbsp;All suggestions, constructive, even non-constructive,&nbsp;will be welcoming😃.<br>
+For those interested in the Fibonacci sequence, here is a full list of the first [10, 100, and 300 Fibonacci numbers.](https://www.math.net/list-of-fibonacci-numbers)
 
 </body>
 </html>
