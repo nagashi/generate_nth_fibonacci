@@ -4,7 +4,7 @@ use ordinal::Ordinal;
 use std::{io, mem::replace};
 
 // Calculate large fibonacci numbers.
-fn fib(n: u128) -> BigUint {
+fn fibonacci(n: u128) -> BigUint {
     let mut f0: BigUint = Zero::zero();
     let mut f1: BigUint = One::one();
 
@@ -85,11 +85,11 @@ fn main() {
             .collect::<String>();
 
         println!(
-            "The {num_ord} Fibonacci number is: \n{}",
-            fib(num).formated(),
-            num_ord = format!(
+            "The {fib} Fibonacci number is: \n{}",
+            fibonacci(num).formated(),
+            fib = format!(
                 "{}{}",
-                num.formated(),
+                num.formated(), // format if > 999
                 suffix.chars().rev().collect::<String>()
             )
         );
