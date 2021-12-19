@@ -53,15 +53,51 @@ Binet formula_](https://www.sciencedirect.com/science/article/pii/S0195669807000
 </p>
 <br>
 
-The way the program is now constructed satisfies my previous concerns:<br><br>&nbsp;&nbsp;&nbsp;(1)&nbsp;Allowing the user a wider range of numbers to input.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The largest number I tried successfully was 1.6 million.<br>&nbsp;&nbsp;&nbsp;(2)&nbsp;Format the Fibonacci Sequence and the user input.<br><br>The 'formated' function has been implemented on both the u128 and BigUint datatypes.&nbsp;&nbsp;This allows each of the mentioned dataypes to now have the capability to call the formated function on its own value.  The source code can be viewed in the [src/main](https://github.com/nagashi/generate_nth_fibonacci/blob/main/src/main.rs) folder for those unfamiliar with the Rust language.
+The way the program is now constructed satisfies my previous concerns:
+<ol>
+  <li>Allowing the user a wider range of numbers to input.&nbsp;&nbsp;The largest number I successfully inputed was 1.6 million.
+  </li>
+  <li>Formatting the Fibonacci Sequence, comma delimited if over 999, and the user input, both comma delimited and ordinal sequence.
+  </li>
+</ol>
+  
+<br>
+
+  The 'formated' function has been implemented on both the u128 and BigUint datatypes.&nbsp;&nbsp;This allows each of the mentioned dataypes to now have the capability to call the formated function on its own value.  The source code can be viewed in the [src/main](https://github.com/nagashi/generate_nth_fibonacci/blob/main/src/main.rs) folder for those unfamiliar with the Rust language.
 <br>
 <br>
 
-Thanks for reading and do reach out and let me know if you have any questions or concerns.&nbsp;&nbsp;All suggestions, constructive, even non-constructive,&nbsp;will be welcoming😃.<br>
+Thanks for reading and do reach out and let me know if you have any questions or concerns.&nbsp;&nbsp;Click 'Star' if you like the program.&nbsp;&nbsp;All suggestions, constructive, even non-constructive, will be welcomed.<img src = "images/ok.png" alt="Image denoting Ok"
+          width="30"
+          height="20"
+          border="0"
+        /><br>
 For those interested in the Fibonacci sequence, here is a full list of the first [10, 100, and 300 Fibonacci numbers.](https://www.math.net/list-of-fibonacci-numbers)
 
 </body>
 </html>
+<br>
+<br>
+<div align="center"> 
 
+[![MIT licensed][mit-badge]][mit-url]&nbsp;&nbsp;[![Rust](https://img.shields.io/badge/rust-%23000000.svg?style=for-the-badge&logo=rust&logoColor=white)](https://www.rust-lang.org/)
+
+</div>
+<br>
+<br>
+<p>
+
+### License
+
+This project is licensed under the&nbsp;[MIT license](LICENSE).
+
+[mit-badge]: https://img.shields.io/badge/license-MIT-blue.svg
+[mit-url]: LICENSE
+### Contribution
+
+Unless you explicitly state otherwise, any contribution intentionally submitted
+for inclusion in 'Generate_Nth_Fibonacci' by you, shall be licensed as MIT, without any additional terms or conditions.
+
+</p>
 
 
