@@ -1,4 +1,4 @@
-use num_bigint::{ToBigUint, BigUint};
+use num_bigint::{BigUint, ToBigUint};
 use num_traits::{One, Zero};
 use ordinal::Ordinal;
 use std::{io, mem::replace};
@@ -16,23 +16,25 @@ fn fibonacci(n: u128) -> BigUint {
     f0
 }
 
-    // generic for BigUint
+// generic for BigUint
 fn formatted<T>(input: T) -> String
-	where T: ToBigUint, T:std::fmt::Debug
-	{
-	    let format_string = format!("{:?}", input);
-        let mut x = String::new();
-        let mut z = format_string.chars().rev().peekable();
+where
+    T: ToBigUint,
+    T: std::fmt::Debug,
+{
+    let format_string = format!("{:?}", input);
+    let mut x = String::new();
+    let mut z = format_string.chars().rev().peekable();
 
-        while z.peek().is_some() {
-            let chunk: String = z.by_ref().take(3).collect();
-            x.push_str(&chunk);
-            if z.peek().is_some() {
-                x.push(',');
-            }
+    while z.peek().is_some() {
+        let chunk: String = z.by_ref().take(3).collect();
+        x.push_str(&chunk);
+        if z.peek().is_some() {
+            x.push(',');
         }
-        x.chars().rev().collect()
     }
+    x.chars().rev().collect()
+}
 
 fn main() {
     loop {
