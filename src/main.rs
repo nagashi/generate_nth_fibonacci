@@ -1,4 +1,4 @@
-use num_bigint::BigUint;
+use num_bigint::{ToBigUint, BigUint};
 use num_traits::{One, Zero};
 use ordinal::Ordinal;
 use std::{io, mem::replace};
@@ -16,15 +16,11 @@ fn fibonacci(n: u128) -> BigUint {
     f0
 }
 
-// implement formatting capability for
-// datatypes u128 & BigUint
-trait Format {
-    fn formated(&self) -> String;
-}
-
-impl Format for u128 {
-    fn formated(&self) -> String {
-        let format_string = format!("{}", self);
+    // generic for BigUint
+fn formatted<T>(input: T) -> String
+	where T: ToBigUint, T:std::fmt::Debug
+	{
+	    let format_string = format!("{:?}", input);
         let mut x = String::new();
         let mut z = format_string.chars().rev().peekable();
 
@@ -37,24 +33,6 @@ impl Format for u128 {
         }
         x.chars().rev().collect()
     }
-}
-
-impl Format for BigUint {
-    fn formated(&self) -> String {
-        let format_string = format!("{}", self);
-        let mut x = String::new();
-        let mut z = format_string.chars().rev().peekable();
-
-        while z.peek().is_some() {
-            let chunk: String = z.by_ref().take(3).collect();
-            x.push_str(&chunk);
-            if z.peek().is_some() {
-                x.push(',');
-            }
-        }
-        x.chars().rev().collect()
-    }
-}
 
 fn main() {
     loop {
@@ -86,10 +64,10 @@ fn main() {
 
         println!(
             "The {fib} Fibonacci number is: \n{}",
-            fibonacci(num).formated(),
+            formatted(fibonacci(num)),
             fib = format!(
                 "{}{}",
-                num.formated(), // format if > 999
+                formatted(num), // format if > 999
                 suffix.chars().rev().collect::<String>()
             )
         );
